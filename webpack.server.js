@@ -13,7 +13,7 @@ fs.readdirSync("./node_modules")
 nodeModules["react"] = "commonjs react/addons";
 
 module.exports = {
-    entry: "./src/Server/Server.js",
+    entry: "./src/server/Server.js",
     output: {
         path: "./dist",
         filename: "Server.js",

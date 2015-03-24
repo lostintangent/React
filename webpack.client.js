@@ -1,7 +1,7 @@
 var webpack = require("webpack");
 
 module.exports = {
-    entry: "./src/Client/Browser.js",
+    entry: "./src/client/Browser.js",
     output: {
         path: "./dist/assets",
         filename: "Browser.js",
