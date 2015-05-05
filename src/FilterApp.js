@@ -32,6 +32,8 @@ class FilterApp extends PureComponent {
     }
 
     render() {
+        var exclusionCount = this.state.data.get("exclusions").size;
+        
         return (
             <div>
                 <h1>Movie recommendations</h1>
@@ -43,13 +45,15 @@ class FilterApp extends PureComponent {
                     query={this.state.query}
                     rateLimit={this.state.rateLimit} />
                 <FilterFooter
-                    excluded={this.state.data.get("exclusions").size} />
+                    excluded={exclusionCount} />
                 <Profiler />
             </div>
         );
     }
 };
 
+// This hooks up the FilterApp component to the MovieStore,
+// which forces a re-render of the app whenever state is change
 Object.assign(FilterApp.prototype,
               Reflux.connect(MovieStore, "data"));
 

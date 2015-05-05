@@ -12,12 +12,21 @@ class Profiler extends React.Component {
 
     render() {
         return (
-            <div style={{ marginTop: 10 }}>
+            <div style={styles.container}>
                 <hr />
                 <button onClick={this.startProfiling}>Start profiling</button>
-                <button onClick={this.stopProfiling} style={{ marginLeft: 5 }}>Stop profiling</button>
+                <button onClick={this.stopProfiling} style={styles.stopProfilingLink}>Stop profiling</button>
             </div>
         );
+    }
+}
+
+let styles = {
+    container: {
+        marginTop: 10
+    },
+    stopProfilingLink: {
+        marginLeft: 5
     }
 }
 

@@ -17,13 +17,19 @@ class FilterInput extends PureComponent {
                     onChange={this.props.onChange}
                     placeholder="Type to search..." />
                 <label>
-                    <span style={{ marginLeft: 5 }}>Show only highly-rated films?</span>
+                    <span style={styles.ratingFilterLabel}>Show only highly-rated films?</span>
                     <input
                         type="checkbox"
                         onChange={this.props.onRateChange} />
                 </label>
             </form>
         );
+    }
+}
+
+let styles = {
+    ratingFilterLabel: {
+        marginLeft: 5
     }
 }
 

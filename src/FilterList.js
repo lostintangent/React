@@ -23,20 +23,18 @@ class FilterList extends PureComponent {
                             .map(i => i.get("rating"))
                             .max();
 
-        let styleBuilder = (r) => {
-            return { fontWeight: r === highestRating ? "bold" : "normal" };
-        };
+        let styleBuilder = (rating) => rating === highestRating ? styles.highestRatedMovie : {};
 
         var element;
 
         if (filteredList.size > 0) {
             // Map each filtered item to its component equivalent
-            let listItems = filteredList.map(i => (
+            let listItems = filteredList.map(movie => (
                 <FilterListItem
-                    key={i.get("name")}
-                    name={i.get("name")}
-                    rating={i.get("rating")}
-                    style={styleBuilder(i.get("rating"))} />
+                    key={movie.get("name")}
+                    name={movie.get("name")}
+                    rating={movie.get("rating")}
+                    style={styleBuilder(movie.get("rating"))} />
             ));
 
             element = <ol>{listItems}</ol>;
@@ -46,6 +44,12 @@ class FilterList extends PureComponent {
         }
         
         return element;
+    }
+}
+
+let styles = {
+    highestRatedMovie: {
+        fontWeight: "bold"
     }
 }
 

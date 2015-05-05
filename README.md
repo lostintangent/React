@@ -4,4 +4,4 @@
 3. Run "npm install" to acquire all dependencies
 4. Run "npm start" to compile and run the app
 
-If you want to use Gulp and/or Webpack directly from the terminal, make sure to install them globally using NPM.
+If you want to use Gulp and/or Webpack directly from the terminal, make sure to install them globally using NPM, and then you can optionally run "gulp" or "gulp serve" instead of using the "npm start" command mentioned above.

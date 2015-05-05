@@ -14,7 +14,7 @@ class FilterFooter extends PureComponent {
 
         if (this.props.excluded) {
             exclusionElement = <a href="#" onClick={clearExclusions}>
-                               Clear exclusions ({this.props.excluded})
+                                Clear exclusions ({this.props.excluded})
                                </a>;
         } else {
             exclusionElement = <div>No exclusions! Exclude movies that you aren't interested in</div>;
@@ -23,12 +23,18 @@ class FilterFooter extends PureComponent {
         return (
             <div>
                 {exclusionElement}
-                <div style={{ marginTop: 10 }}>
+                <div style={styles.undoRedoContainer}>
                     <a href="#" onClick={undo}>Undo</a>
                     <a href="#" onClick={redo} style={{ marginLeft: 5 }} >Redo</a>
                 </div>
             </div>
         );
+    }
+}
+
+let styles = {
+    undoRedoContainer: {
+        marginTop: 10
     }
 }
 
