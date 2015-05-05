@@ -33,4 +33,5 @@ gulp.task("serve-webpack", function (done) {
 });
 
 gulp.task("build", ["build-client", "build-server"]);
-gulp.task("default", ["build"]);
+
+gulp.task("default", ["serve"]);

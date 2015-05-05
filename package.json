@@ -1,7 +1,7 @@
 {
   "name": "React",
   "version": "1.0.0",
-  "description": "A sample app built with ReactJS",
+  "description": "A simple demo app that illustrates how to use ReactJS, including ES6, WebPack bundling, server-side rendering, flux-like architectures, and immutable data structures",
   "main": "./src/Main.js",
   "author": "Jonathan Carter",
   "license": "ISC",
@@ -23,5 +23,8 @@
     "express": "^4.12.3",
     "react": "^0.13.0-rc2",
     "reflux": "^0.2.7"
+  },
+  "scripts": {
+    "start": "node ./node_modules/gulp/bin/gulp.js"
   }
 }
