@@ -25,7 +25,7 @@ class FilterFooter extends PureComponent {
                 {exclusionElement}
                 <div style={styles.undoRedoContainer}>
                     <a href="#" onClick={undo}>Undo</a>
-                    <a href="#" onClick={redo} style={{ marginLeft: 5 }} >Redo</a>
+                    <a href="#" onClick={redo} style={styles.redoLink}>Redo</a>
                 </div>
             </div>
         );
@@ -33,6 +33,9 @@ class FilterFooter extends PureComponent {
 }
 
 let styles = {
+    redoLink: {
+        marginLeft: 5
+    },
     undoRedoContainer: {
         marginTop: 10
     }
