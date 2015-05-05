@@ -13,11 +13,12 @@ class FilterListItem extends PureComponent {
 
     render() {
         let { name, rating, style } = this.props;
+        let styles = Object.assign(style, { marginTop: 3 });
 
         return (
-            <li style={style}>
+            <li style={styles}>
                 <span>{name} ({rating}/10)</span>
-                <a onClick={excludeItem.bind(null, name)} href="#">Exclude</a>
+                <a style={{ marginLeft: 5 }} onClick={excludeItem.bind(null, name)} href="#">Exclude</a>
             </li>
         );
     }

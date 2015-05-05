@@ -2,6 +2,7 @@ import FilterFooter from "./FilterFooter";
 import FilterInput from "./FilterInput";
 import FilterList from "./FilterList";
 import MovieStore from "./MovieStore";
+import Profiler from "./Profiler";
 import PureComponent from "./utils/PureComponent";
 import React from "react";
 import Reflux from "reflux";
@@ -11,7 +12,7 @@ class FilterApp extends PureComponent {
         super();
 
         this.state = {
-            data: MovieStore.initialState,
+            data: MovieStore.currentState,
             query: "",
             rateLimit: false
         };
@@ -33,7 +34,7 @@ class FilterApp extends PureComponent {
     render() {
         return (
             <div>
-                <h1>Movie ratings!</h1>
+                <h1>Movie recommendations</h1>
                 <FilterInput
                     onChange={this.handleChange}
                     onRateChange={this.handleRateChange} />
@@ -43,6 +44,7 @@ class FilterApp extends PureComponent {
                     rateLimit={this.state.rateLimit} />
                 <FilterFooter
                     excluded={this.state.data.get("exclusions").size} />
+                <Profiler />
             </div>
         );
     }

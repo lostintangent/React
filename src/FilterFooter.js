@@ -1,4 +1,4 @@
-import { clearExclusions, undo } from "./Actions";
+import { clearExclusions, redo, undo } from "./Actions";
 import PureComponent from "./utils/PureComponent";
 import React from "react";
 
@@ -10,19 +10,23 @@ class FilterFooter extends PureComponent {
     }
 
     render() {
-        var element;
+        var exclusionElement;
 
         if (this.props.excluded) {
-            element = <a href="javascript:void(0)" onClick={clearExclusions}>Clear exclusions ({this.props.excluded})</a>
+            exclusionElement = <a href="#" onClick={clearExclusions}>
+                               Clear exclusions ({this.props.excluded})
+                               </a>;
         } else {
-            element = <div>No exclusions!</div>;
+            exclusionElement = <div>No exclusions! Exclude movies that you aren't interested in</div>;
         }
 
         return (
             <div>
-                {element}
-                <br />
-                <a href="javascript:void(0)" onClick={undo}>Undo</a>
+                {exclusionElement}
+                <div style={{ marginTop: 10 }}>
+                    <a href="#" onClick={undo}>Undo</a>
+                    <a href="#" onClick={redo} style={{ marginLeft: 5 }} >Redo</a>
+                </div>
             </div>
         );
     }

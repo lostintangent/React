@@ -1,5 +1,5 @@
-import React from "react";
 import PureComponent from "./utils/PureComponent";
+import React from "react";
 
 class FilterInput extends PureComponent {
     static get propTypes() {
@@ -17,7 +17,7 @@ class FilterInput extends PureComponent {
                     onChange={this.props.onChange}
                     placeholder="Type to search..." />
                 <label>
-                    <span>Show only high-rated films?</span>
+                    <span style={{ marginLeft: 5 }}>Show only highly-rated films?</span>
                     <input
                         type="checkbox"
                         onChange={this.props.onRateChange} />

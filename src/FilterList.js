@@ -27,16 +27,25 @@ class FilterList extends PureComponent {
             return { fontWeight: r === highestRating ? "bold" : "normal" };
         };
 
-        // Map each filtered item to its component equivalent
-        let listItems = filteredList.map(i => (
-            <FilterListItem
-                key={i.get("name")}
-                name={i.get("name")}
-                rating={i.get("rating")}
-                style={styleBuilder(i.get("rating"))} />
-        ));
+        var element;
+
+        if (filteredList.size > 0) {
+            // Map each filtered item to its component equivalent
+            let listItems = filteredList.map(i => (
+                <FilterListItem
+                    key={i.get("name")}
+                    name={i.get("name")}
+                    rating={i.get("rating")}
+                    style={styleBuilder(i.get("rating"))} />
+            ));
+
+            element = <ol>{listItems}</ol>;
+        }
+        else {
+            element = <div style={{ marginBottom: 5 }}>No recommendations match your criteria!</div>;
+        }
         
-        return <ol>{listItems}</ol>;
+        return element;
     }
 }
 

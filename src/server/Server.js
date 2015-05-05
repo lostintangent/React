@@ -4,7 +4,9 @@ import React from "react";
 
 let server = express();
 server.get("/", (req, res) => {
-    let content =
+    let dynamicContent = React.renderToString(<FilterApp />);
+
+    let staticContent =
         React.renderToStaticMarkup(
             <html>
                 <head>
@@ -13,14 +15,14 @@ server.get("/", (req, res) => {
                 </head>
                 <body
                     dangerouslySetInnerHTML={{
-                        __html: React.renderToString(<FilterApp />)
+                        __html: dynamicContent
                     }}>
                 </body>
             </html>
         );
 
     res.setHeader("Content-Type", "text/html");
-    res.end(content);
+    res.end(staticContent);
 });
 
 server.use("/assets", express.static("./dist/assets"));

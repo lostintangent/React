@@ -5,14 +5,15 @@ import Reflux from "reflux";
 let MovieStore = Reflux.createStore({
     listenables: Actions,
 
-    previousState: null,
-
-    initialState: Immutable.fromJS({
+    currentState: Immutable.fromJS({
         exclusions: [],
 
         movies: [
+            { name: "Away From Her", rating: 8 },
             { name: "Big Fish", rating: 7 },
+            { name: "Fantastic Mr. Fox", rating: 8 },
             { name: "Lawrence Anyways", rating: 8 },
+            { name: "Life of Pi", rating: 6 },
             { name: "Memento", rating: 6 },
             { name: "Pan's Labyrinth", rating: 6 },
             { name: "Solaris", rating: 10 },
@@ -21,26 +22,38 @@ let MovieStore = Reflux.createStore({
         ]
     }),
 
-    onUndo: function () {
-        this.initialState = this.previousState;
-
-        this.trigger(this.initialState);
-    },
+    nextState: null,
+    
+    previousState: null,
 
     onClearExclusions: function () {
-        this.previousState = this.initialState;
-        this.initialState = this.initialState
+        this.previousState = this.currentState;
+        this.currentState = this.currentState
                             .updateIn(["exclusions"], e => e.clear());
 
-        this.trigger(this.initialState);
+        this.trigger(this.currentState);
     },
 
     onExcludeItem: function (name) {
-        this.previousState = this.initialState;
-        this.initialState = this.initialState
+        this.previousState = this.currentState;
+        this.currentState = this.currentState
                             .updateIn(["exclusions"], e => e.push(name));
 
-        this.trigger(this.initialState);
+        this.trigger(this.currentState);
+    },
+
+    onRedo: function () {
+        [this.previousState, this.currentState] =
+            [this.currentState, this.nextState];
+        
+        this.trigger(this.currentState);
+    },
+
+    onUndo: function () {
+        [this.nextState, this.currentState] =
+            [this.currentState, this.previousState];
+        
+        this.trigger(this.currentState);
     }
 });
 
