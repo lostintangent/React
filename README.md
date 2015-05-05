@@ -1,9 +1,9 @@
-Prerequisites:
+# Prerequisites:
 
 1. NodeJS
 2. gulp (needed to build the app)
 
-Installation steps:
+# Installation steps:
 
 1. Clone this repo
 2. cd into the newly created directory
