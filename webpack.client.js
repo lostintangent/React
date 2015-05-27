@@ -10,7 +10,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel?optional=runtime&experimental=true"] }
+            { test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel?optional=runtime&stage=0"] }
         ]
     },
     resolve: {
@@ -18,10 +18,5 @@ module.exports = {
             react$: "react/addons"
         }
     },
-    devtool: "source-map",
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: false
-        })
-    ]
+    devtool: "source-map"
 };

@@ -3,13 +3,11 @@ import PureComponent from "./utils/PureComponent";
 import React from "react";
 
 class FilterListItem extends PureComponent {
-    static get propTypes() {
-        return {
-            name: React.PropTypes.string.isRequired,
-            rating: React.PropTypes.number.isRequired,
-            style: React.PropTypes.any.isRequired
-        }
-    }
+    static propTypes = {
+        name: React.PropTypes.string.isRequired,
+        rating: React.PropTypes.number.isRequired,
+        style: React.PropTypes.any.isRequired
+    };
 
     render() {
         let { name, rating, style } = this.props;

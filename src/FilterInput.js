@@ -2,12 +2,10 @@ import PureComponent from "./utils/PureComponent";
 import React from "react";
 
 class FilterInput extends PureComponent {
-    static get propTypes() {
-        return {
-            onChange: React.PropTypes.func.isRequired,
-            onRateChange: React.PropTypes.func.isRequired
-        };
-    }
+    static propTypes = {
+        onChange: React.PropTypes.func.isRequired,
+        onRateChange: React.PropTypes.func.isRequired
+    };
 
     render() {
         return (

@@ -23,7 +23,7 @@ module.exports = {
     externals: nodeModules,
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel?optional=runtime&experimental=true" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel?optional=runtime&stage=0" }
         ]
     },
     devtool: "source-map",

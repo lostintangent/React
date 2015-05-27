@@ -8,26 +8,17 @@ import React from "react";
 import Reflux from "reflux";
 
 class FilterApp extends PureComponent {
-    constructor() {
-        super();
+    state = {
+        data: MovieStore.currentState,
+        query: "",
+        rateLimit: false
+    };
 
-        this.state = {
-            data: MovieStore.currentState,
-            query: "",
-            rateLimit: false
-        };
-
-        // Bind the event handlers in the constructor
-        // so that they aren't re-created on every render
-        this.handleChange = this.handleChange.bind(this);
-        this.handleRateChange = this.handleRateChange.bind(this);
-    }
-
-    handleChange({ target: { value }}) {
+    onHandleChange = ({ target: { value }}) => {
         this.setState({ query: value });
     }
 
-    handleRateChange({ target: { checked }}) {
+    onHandleRateChange = ({ target: { checked }}) => {
         this.setState({ rateLimit: checked })
     }
 
@@ -38,8 +29,8 @@ class FilterApp extends PureComponent {
             <div>
                 <h1>Movie recommendations</h1>
                 <FilterInput
-                    onChange={this.handleChange}
-                    onRateChange={this.handleRateChange} />
+                    onChange={this.onHandleChange}
+                    onRateChange={this.onHandleRateChange} />
                 <FilterList
                     data={this.state.data}
                     query={this.state.query}

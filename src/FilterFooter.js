@@ -3,11 +3,9 @@ import PureComponent from "./utils/PureComponent";
 import React from "react";
 
 class FilterFooter extends PureComponent {
-    static get propTypes() {
-        return {
-            excluded: React.PropTypes.number.isRequired
-        };
-    }
+    static propTypes = {
+        excluded: React.PropTypes.number.isRequired
+    };
 
     render() {
         var exclusionElement;

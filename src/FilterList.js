@@ -3,13 +3,11 @@ import PureComponent from "./utils/PureComponent";
 import React from "react";
 
 class FilterList extends PureComponent {
-    static get propTypes() {
-        return {
-            data: React.PropTypes.any.isRequired,
-            query: React.PropTypes.string.isRequired,
-            rateLimit: React.PropTypes.bool.isRequired
-        };
-    }
+    static propTypes = {
+        data: React.PropTypes.any.isRequired,
+        query: React.PropTypes.string.isRequired,
+        rateLimit: React.PropTypes.bool.isRequired
+    };
 
     render() {
         // Filter the list of data based on the current query
