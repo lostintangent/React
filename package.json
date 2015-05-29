@@ -7,6 +7,10 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
+    "gulp-nodemon": "^2.0.2",
+    "react-hot-loader": "^1.2.2",
+    "shelljs": "^0.5.0",
+    "source-map-support": "^0.2.10"
   },
   "dependencies": {
     "babel-core": "^5.4.7",
@@ -17,11 +21,7 @@
     "immutable": "^3.7.3",
     "react": "^0.13.0-rc2",
     "reflux": "^0.2.7",
-    "webpack": "^1.9.10",
-    "gulp-nodemon": "^2.0.2",
-    "react-hot-loader": "^1.2.2",
-    "shelljs": "^0.5.0",
-    "source-map-support": "^0.2.10"
+    "webpack": "^1.9.10"
   },
   "scripts": {
     "postinstall": "node ./node_modules/gulp/bin/gulp.js build",

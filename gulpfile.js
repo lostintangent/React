@@ -13,7 +13,7 @@ var webpack = require("webpack");
 
 gulp.task("build", ["build:client", "build:server"]);
 
-gulp.task("serve:dev", ["build"], function () {
+gulp.task("serve:dev:nodemon", ["build"], function () {
     nodemon({
         script: "./dist/Server.js",
         tasks: "build-server",
@@ -28,4 +28,4 @@ gulp.task("serve:dev:webpack", function (done) {
         function () { done(); });
 });
 
-gulp.task("default", ["serve:dev"]);
+gulp.task("default", ["serve:dev:nodemon"]);

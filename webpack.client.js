@@ -1,6 +1,6 @@
 var webpack = require("webpack");
 
-module.exports = {
+var buildDefinition = {
     entry: "./src/client/Browser.js",
     output: {
         path: "./dist/assets",
@@ -10,13 +10,19 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel?optional=runtime&stage=0"] }
+            { test: /\.js$/, exclude: /node_modules/, loaders: ["babel?optional=runtime&stage=0"] }
         ]
     },
     resolve: {
         alias: {
             react$: "react/addons"
         }
-    },
-    devtool: "source-map"
+    }
 };
+
+if (process.env.NODE_ENV !== "production") {
+    buildDefinition.module.loaders[0].loaders.unshift("react-hot");
+    buildDefinition.devtool = "source-map";
+}
+
+module.exports = buildDefinition;

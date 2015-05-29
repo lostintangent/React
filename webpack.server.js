@@ -12,7 +12,7 @@ fs.readdirSync("./node_modules")
 
 nodeModules["react"] = "commonjs react/addons";
 
-module.exports = {
+var buildDefinition = {
     entry: "./src/server/Server.js",
     output: {
         path: "./dist",
@@ -25,13 +25,17 @@ module.exports = {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel?optional=runtime&stage=0" }
         ]
-    },
-    devtool: "source-map",
-    plugins: [
-        // This ensures that runtime errors display properly mapped stacks
+    }
+};
+
+if (process.env.NODE_ENV !== "production") {
+    buildDefinition.devtools = "source-map";
+    buildDefinition.plugins = [
         new webpack.BannerPlugin("require('source-map-support').install();", {
             raw: true,
             entryOnly: true
         })
-    ]
-};
+    ];
+}
+
+module.exports = buildDefinition;
