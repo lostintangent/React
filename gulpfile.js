@@ -13,7 +13,7 @@ var webpack = require("webpack");
 
 gulp.task("build", ["build:client", "build:server"]);
 
-gulp.task("serve", ["build"], function () {
+gulp.task("serve:dev", ["build"], function () {
     nodemon({
         script: "./dist/Server.js",
         tasks: "build-server",
@@ -21,11 +21,11 @@ gulp.task("serve", ["build"], function () {
     });
 });
 
-gulp.task("serve-webpack", function (done) {
+gulp.task("serve:dev:webpack", function (done) {
     // The dev server's Node API doesn't support inline
     // mode so I'm just using the CLI to keep the config "clean"
     sh.exec("webpack-dev-server --hot --inline --colors --content-base='./src' --config='webpack.client.js'",
         function () { done(); });
 });
 
-gulp.task("default", ["serve"]);
+gulp.task("default", ["serve:dev"]);
