@@ -6,7 +6,8 @@ import React from "react";
 // 1) The app itself, which is dynamically generated using React
 // 2) All of the static assets (e.g. JS, CSS) for the app
 
-let serverPort = 8081;
+let serverPort = process.env.PORT || 8081;
+
 let server = express();
 server.get("/", (req, res) => {
     // 1) Generate a string of HTML that represents the
