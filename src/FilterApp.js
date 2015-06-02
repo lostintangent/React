@@ -27,7 +27,7 @@ class FilterApp extends PureComponent {
         
         return (
             <div>
-                <h1>Movie recommendatio</h1>
+                <h1>Movie recommendations</h1>
                 <FilterInput
                     onChange={this.onHandleChange}
                     onRateChange={this.onHandleRateChange} />
