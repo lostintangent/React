@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
     var nodemon = require("gulp-nodemon");
     var sh = require("shelljs");
 
-    gulp.task("serve:dev:nodemon", ["build"], function () {
+    gulp.task("serve:nodemon", ["build"], function () {
         nodemon({
             script: "./dist/Server.js",
             tasks: "build-server",
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== "production") {
         });
     });
 
-    gulp.task("serve:dev:webpack", function (done) {
+    gulp.task("serve:webpack", function (done) {
         // The dev server's Node API doesn't support inline
         // mode so I'm just using the CLI to keep the config "clean"
         sh.exec("webpack-dev-server --hot --inline --colors --content-base='./src' --config='webpack.client.js'",

@@ -6,13 +6,11 @@ import React from "react";
 // 1) The app itself, which is dynamically generated using React
 // 2) All of the static assets (e.g. JS, CSS) for the app
 
-let serverPort = process.env.PORT || 8081;
-
 let server = express();
 server.get("/", (req, res) => {
     // 1) Generate a string of HTML that represents the
     //    the body content of the app
-    let dynamicContent = React.renderToString(<FilterApp />);
+    let bodyContent = React.renderToString(<FilterApp />);
 
     // 2) Wrap the app inside the neccesary HTML "scaffold"
     //    using static markup, since we don't need the <html>, <body>, etc.
@@ -26,7 +24,7 @@ server.get("/", (req, res) => {
                 </head>
                 <body
                     dangerouslySetInnerHTML={{
-                        __html: dynamicContent
+                        __html: bodyContent
                     }}>
                 </body>
             </html>
@@ -38,6 +36,6 @@ server.get("/", (req, res) => {
 
 server.use("/assets", express.static("./dist/assets"));
 
-server.listen(serverPort);
+server.listen(process.env.PORT);
 
-console.log(`Server listening on http://localhost:${serverPort}, press Ctrl+C to quit...`);
+console.log(`Server listening on http://localhost:${process.env.PORT}, press Ctrl+C to quit...`);

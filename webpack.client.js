@@ -10,7 +10,11 @@ var buildDefinition = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loaders: ["babel?optional=runtime&stage=0"] }
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ["babel?optional=runtime&stage=0"]
+            }
         ]
     },
     resolve: {

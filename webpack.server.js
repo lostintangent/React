@@ -34,6 +34,11 @@ if (process.env.NODE_ENV !== "production") {
         new webpack.BannerPlugin("require('source-map-support').install();", {
             raw: true,
             entryOnly: true
+        }),
+        new webpack.DefinePlugin({
+            "process.env": {
+                PORT: 8081
+            }
         })
     ];
 }
